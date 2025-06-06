@@ -1,0 +1,38 @@
+[
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/main.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/main.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/main.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/main.cpp.o"
+  },
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/Entity/Entity.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/Entity/Entity.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/Entity/Entity.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/Entity/Entity.cpp.o"
+  },
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/Entity/Player/Player.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/Entity/Player/Player.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/Entity/Player/Player.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/Entity/Player/Player.cpp.o"
+  },
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/Entity/Enemy/Enemy.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/Entity/Enemy/Enemy.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/Entity/Enemy/Enemy.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/Entity/Enemy/Enemy.cpp.o"
+  },
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/Window/Window.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/Window/Window.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/Window/Window.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/Window/Window.cpp.o"
+  },
+  {
+    "directory": "/home/balma/dev/C++/sdl2/learn/build",
+    "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/home/balma/dev/C++/sdl2/learn/src -std=gnu++17 -o CMakeFiles/LEARN.dir/src/Utils/collider.cpp.o -c /home/balma/dev/C++/sdl2/learn/src/Utils/collider.cpp",
+    "file": "/home/balma/dev/C++/sdl2/learn/src/Utils/collider.cpp",
+    "output": "CMakeFiles/LEARN.dir/src/Utils/collider.cpp.o"
+  }
+]
