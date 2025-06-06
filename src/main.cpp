@@ -14,11 +14,30 @@
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
-class Player {
+class Entity {
 public:
-  Player(int x, int y, int w, int h, SDL_Color color)
+  Entity(int x, int y, int w, int h, SDL_Color color)
       : rect({x, y, w, h}), color(color) {};
 
+  virtual void handleInput(const Uint8 *keystates) {};
+
+  virtual void render(SDL_Renderer *renderer) {
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(renderer, &rect);
+  }
+  virtual void update() {};
+
+  SDL_Point getPosition() const { return {rect.x, rect.y}; };
+
+protected:
+  SDL_Rect rect;
+  SDL_Color color;
+};
+
+class Player : public Entity {
+public:
+  Player(int x, int y, int w, int h, SDL_Color color)
+      : Entity(x, y, w, h, color) {}
   void handleInput(const Uint8 *keystates) {
     int speed = 5;
 
@@ -32,14 +51,29 @@ public:
       rect.x += speed;
   }
 
-  void render(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(renderer, &rect);
+  SDL_Point getPosition() const { return {rect.x, rect.y}; };
+};
+
+class Enemy : public Entity {
+public:
+  Enemy(int x, int y, int w, int h, SDL_Color color, Player *target,
+        int offsetX, int offsetY)
+      : Entity(x, y, w, h, color), target(target), offsetY(offsetY),
+        offsetX(offsetX) {}
+
+  void handleInput(const Uint8 *) override {};
+
+  void update() override {
+    SDL_Point pos = target->getPosition();
+
+    rect.x = pos.x + offsetX;
+    rect.y = pos.y + offsetY;
   }
 
 private:
-  SDL_Rect rect;
-  SDL_Color color;
+  Player *target;
+  int offsetX;
+  int offsetY;
 };
 
 class Window {
@@ -66,6 +100,8 @@ public:
           success = false;
         } else {
           player = new Player(100, 100, 50, 50, {255, 0, 0, 255});
+          enemy =
+              new Enemy(300, 300, 50, 50, {0, 255, 0, 255}, player, 100, 100);
           isRunning = true;
         }
       }
@@ -89,7 +125,6 @@ public:
     }
   }
 
-  // NEW: DECONSTRUCTOR
   ~Window() { clean(); }
 
 private:
@@ -97,6 +132,7 @@ private:
   SDL_Renderer *renderer;
   bool isRunning;
   Player *player;
+  Enemy *enemy;
 
   void handlePollEvents() {
     SDL_Event e;
@@ -110,12 +146,14 @@ private:
     SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255);
     SDL_RenderClear(renderer);
     player->render(renderer);
+    enemy->render(renderer);
     SDL_RenderPresent(renderer);
   }
 
   void update() {
     const Uint8 *keystates = SDL_GetKeyboardState(NULL);
     player->handleInput(keystates);
+    enemy->update();
   }
 };
 
